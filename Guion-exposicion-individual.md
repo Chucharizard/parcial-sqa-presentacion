@@ -12,7 +12,7 @@ Partimos de las historias de categorías y productos. Por ejemplo: como usuario 
 
 ## 1:00–1:30 / Trabajo colaborativo
 
-Organizamos un sprint de dos días y repartimos los módulos como se ve aquí. Tyler llevó el seguimiento y todos tuvimos tareas de testing. GitHub reúne las historias, responsables, ramas y pull requests. Los cinco PR de pruebas ya están integrados. Seis historias aparecen cerradas y cinco siguen abiertas. Algunas casillas de revisión e integración están desactualizadas. En la demo mostraré ese recorrido en el repositorio.
+Organizamos un sprint de dos días y repartimos los módulos como se ve aquí. Tyler llevó el seguimiento y todos tuvimos tareas de testing. GitHub muestra los 16 issues cerrados: once historias y cinco tareas de prueba. Los cinco PR están aprobados y fusionados. Algunas descripciones todavía conservan un estado anterior, "En revisión", aunque sus criterios están marcados y los issues aparecen cerrados. En la demo mostraré ese recorrido en el repositorio.
 
 ## 1:30–2:00 / Apoyo de IA
 
@@ -37,7 +37,7 @@ La colección tiene 46 solicitudes. La ejecutamos con Newman, que permite correr
 ## 4:40–6:30 / Demo y conclusión
 
 DEMO, aproximadamente 1 minuto 40 segundos:
-1. GitHub: mostrar una tarea, su rama y el PR integrado (20 segundos).
+1. GitHub: mostrar una tarea, su rama y el PR integrado; los 16 issues aparecen cerrados y los cinco PR aprobados y fusionados (20 segundos).
 2. En el proyecto, ejecutar .\mvnw.cmd verify. Mientras termina, mostrar el caso de Mockito explicado antes. Mostrar el resumen y abrir target/site/jacoco/index.html (45 segundos).
 3. Con Docker y la API ya activos, ejecutar la colección en Postman y mostrar sus resultados. Las rutas de las imágenes deben estar configuradas (35 segundos).
 
@@ -48,4 +48,4 @@ ANTES DE EXPONER:
 Ensayar la duración en la laptop. Dejar las dependencias descargadas, las pestañas listas, Docker y la API activos. Si una ejecución tarda más, indicar que sigue en curso y distinguirla del reporte guardado. El resultado de una nueva corrida puede variar si cambia la colección o los datos.
 
 SEGUIMIENTO AL CORTE DEL INFORME:
-Seis historias aparecen cerradas y cinco siguen abiertas; revisar las casillas que aún no reflejan las pruebas y los PR integrados. La tarea #20 continúa abierta y el PR 3 no tiene revisión formal registrada. La colección con sus imágenes sigue pendiente de compartir junto al proyecto. Confirmar estos puntos antes de la defensa.
+La colección de Postman y sus imágenes todavía deben compartirse junto al proyecto. Varias descripciones de historias aún muestran el texto antiguo "En revisión"; el estado de GitHub está cerrado, y las casillas aparecen completas. Conviene limpiar ese texto de seguimiento antes de presentar la página de issues.
