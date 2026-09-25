@@ -84,6 +84,12 @@
     .closing .steps b { display:inline-block; width:2.2em; color:var(--teal); }
     .closing .aside { font-size:clamp(23px,2.15vw,38px); line-height:1.3; color:#c0d0d4; border-left:1px solid #3c5363; padding-left:4vw; }
     .closing .aside strong { color:var(--paper); }
+    .ai-columns { display:grid; grid-template-columns:1fr 1fr; gap:6vw; margin:auto 0; }
+    .ai-columns article { border-top:2px solid var(--ink); padding-top:2.2vh; }
+    .ai-columns h3 { font-size:clamp(25px,2.6vw,44px); letter-spacing:-.035em; margin-bottom:2.4vh; }
+    .ai-columns p { font-size:clamp(20px,1.8vw,31px); line-height:1.38; margin-top:1.7vh; }
+    .ai-columns .label { display:block; color:var(--muted); font-size:clamp(14px,1.15vw,20px); margin-bottom:1vh; }
+    .ai-example { border-top:1px solid var(--line); padding-top:2vh; font-size:clamp(18px,1.55vw,27px); line-height:1.35; }
     .controls { position:fixed; z-index:20; left:0; right:0; bottom:0; height:4.9vh; min-height:38px; display:flex; align-items:center; justify-content:space-between; padding:0 2.7vw; color:#b9c8ce; background:#0b1421; font-size:13px; letter-spacing:.05em; }
     .controls .progress { position:absolute; top:0; left:0; height:3px; background:var(--teal); transition:width .25s ease; }
     .controls button { border:0; background:none; color:inherit; font:inherit; cursor:pointer; padding:8px 13px; }
@@ -111,14 +117,14 @@
       <div class="topline"><span>01 / Plan de pruebas</span><span class="right">De la historia al resultado</span></div>
       <h2 class="section-head">Cómo armamos los casos</h2>
       <div class="list-large">
-        <div class="item"><span class="num">01</span><h3>Alcance</h3><p>CRUD de categorías y productos; controladores, servicios y utilidades.</p></div>
+        <div class="item"><span class="num">01</span><h3>Alcance</h3><p>CRUD de categorías y productos. Dos controladores, dos servicios y tres utilidades.</p></div>
         <div class="item"><span class="num">02</span><h3>Casos</h3><p>Éxitos y errores: datos faltantes, IDs inexistentes y fallos de respuesta.</p></div>
         <div class="item"><span class="num">03</span><h3>Estrategia</h3><p>JUnit y Mockito para Java; Postman con MySQL para la API completa.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="slide dark" data-notes="El docente pidió un sprint corto con backlog, issues, ramas y evidencia de la participación de cada uno. Todos participamos en las pruebas, aunque cada uno tuvo un módulo principal. Tyler coordinó el sprint y probó el controlador de categorías. José cubrió el servicio de categorías; Jesús, el controlador de productos; Valentina, el servicio de productos; Ethan, utilidades y exportadores Excel. Cada uno trabajó en su rama, abrió un PR y los cinco PR de pruebas quedaron fusionados. Las cinco tareas de pruebas están cerradas; las once historias funcionales siguen abiertas para revisar sus criterios de aceptación.">
+  <section class="slide dark" data-notes="El docente pidió un sprint corto con backlog, issues, ramas y evidencia de la participación de cada uno. Todos participamos en las pruebas, aunque cada uno tuvo un módulo principal. Tyler coordinó el sprint y probó el controlador de categorías. José cubrió el servicio de categorías; Jesús, el controlador de productos; Valentina, el servicio de productos; Ethan, utilidades y exportadores Excel. Cada uno trabajó en su rama, abrió un PR y los cinco PR de pruebas quedaron fusionados. Las cinco tareas de pruebas están cerradas. Al corte del informe, once historias siguen abiertas y algunas casillas no reflejan los PR ya integrados. El PR 3 no tiene una revisión formal registrada. Esos detalles de seguimiento quedan pendientes.">
     <div class="page">
       <div class="topline"><span>02 / Organización</span><span class="right">Sprint de dos días</span></div>
       <h2 class="section-head">Un módulo por persona</h2>
@@ -133,7 +139,7 @@
     </div>
   </section>
 
-  <section class="slide light" data-notes="Sobre la versión integrada de main ejecutamos Maven verify. Pasaron 106 pruebas Java sin fallos ni errores. Son métodos de prueba distribuidos en 14 clases. El panel de VS Code muestra 120 marcas porque parece sumar esas 14 clases; para el informe usamos el resultado de Maven. Los casos incluyen respuestas correctas, errores 400 y 404 y comprobaciones de que no se guarde cuando una búsqueda falla. Si preguntan por Mockito: @Mock crea una dependencia simulada; @InjectMocks coloca esos mocks en la clase que estamos probando. Así comprobamos su lógica sin depender de MySQL.">
+  <section class="slide light" data-notes="Sobre la versión integrada de main ejecutamos Maven verify. Pasaron 106 pruebas Java sin fallos ni errores. Son métodos de prueba distribuidos en 14 clases. Para el informe usamos el resultado de Maven. El total combina las pruebas unitarias con pruebas heredadas de integración, como DAO con H2 y carga del contexto. Los casos incluyen respuestas correctas, errores 400 y 404 y comprobaciones de que no se guarde cuando una búsqueda falla. Si preguntan por Mockito: @Mock crea una dependencia simulada; @InjectMocks coloca esos mocks en la clase que estamos probando. Así aislamos la lógica en las pruebas unitarias. Las pruebas funcionales sí usan la API y MySQL reales.">
     <div class="page">
       <div class="topline"><span>03 / Pruebas Java</span><span class="right">Maven · main</span></div>
       <h2 class="section-head">La suite integrada pasó</h2>
@@ -144,7 +150,7 @@
     </div>
   </section>
 
-  <section class="slide light" data-notes="Este es el reporte real de JaCoCo sobre main. Dio 97,3 por ciento de cobertura de líneas; instrucciones y ramas son 79,3 y 35,1 por ciento. Es importante mostrar las tres métricas: decir solo 97 por ciento escondería las ramas pendientes. Los dos controladores y los dos servicios asignados tienen todas sus líneas cubiertas; el global incluye otras clases del proyecto.">
+  <section class="slide light" data-notes="Este es el reporte real de JaCoCo sobre main. Dio 97,3 por ciento de cobertura de líneas; instrucciones y ramas son 79,3 y 35,1 por ciento. El rango sugerido de 85 a 95 por ciento se supera en líneas. Instrucciones y ramas quedan por debajo. La consigna no precisa una única métrica. Los dos controladores y los dos servicios asignados tienen todas sus líneas cubiertas; el global incluye otras clases del proyecto.">
     <div class="page">
       <div class="topline"><span>04 / Cobertura</span><span class="right">JaCoCo · main fa19273</span></div>
       <h2 class="section-head">El reporte real de JaCoCo</h2>
@@ -170,7 +176,7 @@
     </div>
   </section>
 
-  <section class="slide coral" data-notes="Tyler compartió una colección con 46 solicitudes. La corrimos con Newman, el ejecutor de colecciones de Postman, contra la API y MySQL reales. Se ejecutaron 45 solicitudes y pasaron 177 de 177 comprobaciones. La solicitud 45 era solo un reintento de limpieza; como no quedó ningún registro pendiente, se omitió. La colección cubre altas, lecturas, cambios, borrados, búsquedas, errores y descargas Excel.">
+  <section class="slide coral" data-notes="Tyler compartió una colección con 46 solicitudes. La corrimos con Newman, el ejecutor de colecciones de Postman, contra la API y MySQL reales. Se ejecutaron 45 solicitudes y pasaron 177 de 177 comprobaciones. La solicitud 45 era solo un reintento de limpieza; como no quedó ningún registro pendiente, se omitió. La colección cubre altas, lecturas, cambios, borrados, búsquedas, errores y descargas Excel. La copia ejecutada ajusta el alcance de una variable en los scripts y usa las imágenes de prueba previstas. Conservamos el original y documentamos esos ajustes en el informe.">
     <div class="page">
       <div class="topline"><span>06 / Pruebas funcionales</span><span class="right">Colección de Postman</span></div>
       <h2 class="section-head">La API pasó la corrida</h2>
@@ -182,9 +188,21 @@
     </div>
   </section>
 
-  <section class="slide dark" data-notes="La defensa dura de cinco a siete minutos. Primero mostramos GitHub: backlog, issues, ramas, cinco PR fusionados y qué hizo cada integrante. Luego ejecutamos Maven y abrimos JaCoCo, aclarando la diferencia entre líneas, instrucciones y ramas. Por último mostramos Postman con la API y MySQL. El informe de ocho páginas reúne objetivo, alcance, casos y resultados. Las historias funcionales siguen abiertas hasta revisar sus criterios de aceptación.">
+  <section class="slide light" data-notes="Unos 35 segundos. Usamos IA para generar pruebas con JUnit y Mockito, apoyar la ejecución y preparar documentación. Nosotros definimos qué módulos cubrir, repartimos las tareas y fuimos pidiendo ajustes. También autorizamos las entregas y las revisiones. Para comprobar el trabajo usamos resultados de Maven, cobertura de JaCoCo y la colección de Postman ejecutada con Newman. Un ejemplo fue probar que una categoría inexistente devolviera 404 y que el servicio no intentara guardar el producto. La IA ayudó tanto con código como con comprobaciones; el equipo mantiene la responsabilidad de entender y explicar lo entregado.">
     <div class="page">
-      <div class="topline"><span>07 / Cierre</span><span class="right">Defensa de 5 a 7 minutos</span></div>
+      <div class="topline"><span>07 / Apoyo de IA</span><span class="right">Trabajo dirigido por el equipo</span></div>
+      <h2 class="section-head">Cómo usamos la IA</h2>
+      <div class="ai-columns">
+        <article><span class="label">APOYO</span><h3>Qué hizo la IA</h3><p>Generó pruebas y scripts.</p><p>Ayudó a ejecutarlos y revisar resultados.</p><p>Preparó borradores del informe y las diapositivas.</p></article>
+        <article><span class="label">SUPERVISIÓN</span><h3>Qué decidió el equipo</h3><p>El alcance y el reparto de tareas.</p><p>Las instrucciones y los ajustes necesarios.</p><p>Las entregas y la autorización de las revisiones.</p></article>
+      </div>
+      <p class="ai-example"><strong>Comprobación concreta:</strong> categoría inexistente, respuesta 404 y ninguna llamada para guardar el producto. Evidencia en las pruebas ejecutadas.</p>
+    </div>
+  </section>
+
+  <section class="slide dark" data-notes="Reservamos cerca de dos minutos para la demo y mantenemos la defensa completa entre cinco y siete minutos. Mostramos GitHub: backlog, issues, ramas, cinco PR fusionados y qué módulo tuvo cada integrante. Luego ejecutamos Maven y abrimos JaCoCo. Mostramos la colección de Postman con la API y MySQL. El informe de ocho páginas reúne plan, casos, incidencia del entorno, instrucciones y resultados. Al corte de esta evidencia falta actualizar casillas de las once historias abiertas, compartir la colección y sus imágenes con el proyecto, y completar el registro de revisión del PR 3. No presentamos esos puntos como ya cerrados.">
+    <div class="page">
+      <div class="topline"><span>08 / Cierre</span><span class="right">Defensa de 5 a 7 minutos</span></div>
       <div class="closing">
         <div><h2>Qué mostramos<br>en vivo</h2><div class="steps"><p><b>01</b> GitHub: issues, ramas y PR</p><p><b>02</b> Maven y JaCoCo</p><p><b>03</b> Postman con MySQL</p></div></div>
         <p class="aside"><strong>Informe: 8 páginas</strong><br>con plan, casos y resultados.<br><br><strong>106 pruebas Java</strong> y <strong>177 comprobaciones HTTP</strong> aprobadas.</p>
@@ -194,10 +212,10 @@
 
   <div class="controls" aria-label="Controles de presentación">
     <div id="progress" class="progress"></div>
-    <div><button id="prev" aria-label="Diapositiva anterior">←</button><span id="counter" aria-live="polite">1 / 8</span><button id="next" aria-label="Diapositiva siguiente">→</button></div>
+    <div><button id="prev" aria-label="Diapositiva anterior">←</button><span id="counter" aria-live="polite">1 / 9</span><button id="next" aria-label="Diapositiva siguiente">→</button></div>
     <div class="hint">← → avanzar &nbsp; · &nbsp; N guion &nbsp; · &nbsp; F pantalla completa</div>
   </div>
-  <aside id="notes" class="notes" aria-label="Guion de exposición"><h3>Guion para Tyler</h3><p id="noteText"></p></aside>
+  <aside id="notes" class="notes" aria-label="Guion de exposición"><h3>Guion de exposición</h3><p id="noteText"></p></aside>
   <script>
     const slides=[...document.querySelectorAll('.slide')];
     const counter=document.getElementById('counter');
