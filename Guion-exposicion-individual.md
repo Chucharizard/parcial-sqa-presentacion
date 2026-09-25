@@ -12,7 +12,7 @@ Partimos de las historias de categorías y productos. Por ejemplo: como usuario 
 
 ## 1:00–1:30 / Trabajo colaborativo
 
-Organizamos un sprint de dos días y repartimos los módulos como se ve aquí. Tyler llevó el seguimiento y todos tuvimos tareas de testing. GitHub muestra los 16 issues cerrados: once historias y cinco tareas de prueba. Los cinco PR están aprobados y fusionados. Actualizamos las descripciones para reflejar ese estado. En la demo mostraré ese recorrido en el repositorio.
+Organizamos un sprint de dos días y repartimos los módulos como se ve aquí. Tyler llevó el seguimiento y todos tuvimos tareas de testing. GitHub muestra 16 issues cerrados y seis PR aprobados e integrados. El PR #23 documenta el ajuste de cobertura y está en revisión. En la demo mostraré una tarea, su rama y la revisión en GitHub.
 
 ## 1:30–2:00 / Apoyo de IA
 
@@ -24,7 +24,7 @@ Este ejemplo muestra cómo usamos Mockito. Simulamos que el repositorio no encue
 
 ## 2:50–3:30 / Cobertura
 
-JaCoCo reportó 97,3 por ciento de líneas, 79,3 de instrucciones y 35,1 de ramas. Las líneas indican qué código se ejecutó y las ramas muestran las alternativas recorridas en las decisiones. Los dos controladores y los dos servicios tienen todas sus líneas cubiertas. En el global quedan alternativas sin cubrir. El rango sugerido de 85 a 95 por ciento se supera en líneas. La consigna no especifica una única métrica, por eso mostramos las tres.
+En el PR #23, JaCoCo registra 97,7 por ciento de líneas, 97,9 de instrucciones y 92,5 de ramas. Para medir el código escrito por el equipo, configuramos Lombok para que marque sus métodos automáticos; JaCoCo los deja fuera del cálculo. No cambiamos la lógica ni añadimos pruebas para subir el número: las mismas 106 pasaron. El reporte anterior sí incluía esos métodos, por eso los porcentajes no se comparan directamente.
 
 ## 3:30–4:00 / Ambiente e incidencia
 
@@ -32,20 +32,20 @@ Las pruebas funcionales usaron MySQL en Docker y la API en el puerto 8080. Estas
 
 ## 4:00–4:40 / Pruebas funcionales
 
-La colección tiene 46 solicitudes. La ejecutamos con Newman, que permite correr colecciones de Postman. Hubo 45 solicitudes ejecutadas y 177 comprobaciones aprobadas, sin fallos. Una limpieza condicional se omitió porque ya no quedaban registros pendientes. Comprobamos el CRUD, búsquedas, respuestas de error y descargas Excel. La copia utilizada ajusta una variable de los scripts y utiliza las imágenes de prueba previstas. Conservamos la colección original y documentamos los ajustes.
+La colección tiene 46 solicitudes y ya está en main con sus dos imágenes y una guía para ejecutarla. La corrimos con Newman: 45 solicitudes y 177 comprobaciones aprobadas, sin fallos. La solicitud restante era una limpieza condicional que se omitió porque ya no quedaban registros. Revisamos el CRUD, las búsquedas, los errores y las descargas Excel con la API y MySQL activos.
 
 ## 4:40–6:30 / Demo y conclusión
 
 DEMO, aproximadamente 1 minuto 40 segundos:
-1. GitHub: mostrar una tarea, su rama y el PR integrado; los 16 issues aparecen cerrados y los cinco PR aprobados y fusionados (20 segundos).
+1. GitHub: mostrar una tarea, su rama y el PR integrado; los 16 issues aparecen cerrados y los seis PR aprobados y fusionados (20 segundos).
 2. En el proyecto, ejecutar .\mvnw.cmd verify. Mientras termina, mostrar el caso de Mockito explicado antes. Mostrar el resumen y abrir target/site/jacoco/index.html (45 segundos).
-3. Con Docker y la API ya activos, ejecutar la colección en Postman y mostrar sus resultados. Las rutas de las imágenes deben estar configuradas (35 segundos).
+3. Con Docker y la API ya activos, ejecutar la colección en Postman y mostrar sus resultados. La carpeta postman/ debe ser el directorio de trabajo (35 segundos).
 
 CIERRE, 10 segundos:
-El informe reúne el plan, los casos, la incidencia y las instrucciones para repetir las pruebas. Las ejecuciones registradas pasaron y la cobertura de ramas muestra dónde se puede seguir mejorando.
+El informe reúne el plan, los casos, la incidencia y las instrucciones para repetir las pruebas. Las ejecuciones pasaron; el PR #23 deja claro cómo medimos la cobertura.
 
 ANTES DE EXPONER:
 Ensayar la duración en la laptop. Dejar las dependencias descargadas, las pestañas listas, Docker y la API activos. Si una ejecución tarda más, indicar que sigue en curso y distinguirla del reporte guardado. El resultado de una nueva corrida puede variar si cambia la colección o los datos.
 
 PENDIENTE:
-Compartir la colección de Postman y sus imágenes de prueba junto al proyecto.
+Tyler revisa el PR #23. Antes de exponer, usar una versión del proyecto que incluya lombok.config.
