@@ -12,7 +12,7 @@ Partimos de las historias de categorías y productos. Por ejemplo: como usuario 
 
 ## 1:00–1:30 / Trabajo colaborativo
 
-Organizamos un sprint de dos días y repartimos los módulos como se ve aquí. Tyler llevó el seguimiento y todos tuvimos tareas de testing. GitHub reúne las historias, responsables, ramas y pull requests. Los cinco PR de pruebas ya están integrados. El informe también señala casillas de seguimiento pendientes de actualizar. En la demo mostraré ese recorrido en el repositorio.
+Organizamos un sprint de dos días y repartimos los módulos como se ve aquí. Tyler llevó el seguimiento y todos tuvimos tareas de testing. GitHub reúne las historias, responsables, ramas y pull requests. Los cinco PR de pruebas ya están integrados. Seis historias aparecen cerradas y cinco siguen abiertas. Algunas casillas de revisión e integración están desactualizadas. En la demo mostraré ese recorrido en el repositorio.
 
 ## 1:30–2:00 / Apoyo de IA
 
@@ -48,4 +48,4 @@ ANTES DE EXPONER:
 Ensayar la duración en la laptop. Dejar las dependencias descargadas, las pestañas listas, Docker y la API activos. Si una ejecución tarda más, indicar que sigue en curso y distinguirla del reporte guardado. El resultado de una nueva corrida puede variar si cambia la colección o los datos.
 
 SEGUIMIENTO AL CORTE DEL INFORME:
-Once historias abiertas con casillas desactualizadas, PR 3 sin revisión formal registrada y colección con imágenes pendiente de compartir junto al proyecto. Confirmar su estado antes de la defensa.
+Seis historias aparecen cerradas y cinco siguen abiertas; revisar las casillas que aún no reflejan las pruebas y los PR integrados. La tarea #20 continúa abierta y el PR 3 no tiene revisión formal registrada. La colección con sus imágenes sigue pendiente de compartir junto al proyecto. Confirmar estos puntos antes de la defensa.
