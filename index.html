@@ -106,21 +106,21 @@
     </div>
   </section>
 
-  <section class="slide light" data-notes="Dividimos la revisión en tres partes. Con JUnit y Mockito probamos métodos sin depender de la base de datos. Después ejecutamos solicitudes HTTP reales contra la API y MySQL. GitHub nos permitió repartir módulos y revisar cada aporte. Estas cifras no deben mezclarse: las pruebas Java y las solicitudes de Postman miden cosas distintas.">
+  <section class="slide light" data-notes="El plan parte de las operaciones de categorías y productos. Para cada historia preparamos casos con entrada y resultado esperado: el camino correcto y errores como datos faltantes o identificadores inexistentes. JUnit y Mockito probaron las clases Java; Postman verificó la API completa con MySQL. Si aparece un defecto real se registra con pasos, esperado, obtenido y evidencia; la corrida final no confirmó fallos de la API.">
     <div class="page">
-      <div class="topline"><span>01 / Alcance</span><span class="right">Dos tipos de pruebas</span></div>
-      <h2 class="section-head">Qué probamos</h2>
+      <div class="topline"><span>01 / Plan de pruebas</span><span class="right">De la historia al resultado</span></div>
+      <h2 class="section-head">Cómo armamos los casos</h2>
       <div class="list-large">
-        <div class="item"><span class="num">01</span><h3>Código Java</h3><p>Controladores, servicios y utilidades con JUnit 5 y Mockito.</p></div>
-        <div class="item"><span class="num">02</span><h3>API real</h3><p>Categorías, productos, errores y Excel mediante HTTP y MySQL.</p></div>
-        <div class="item"><span class="num">03</span><h3>Trabajo en equipo</h3><p>Issues, ramas y pull requests para integrar las pruebas.</p></div>
+        <div class="item"><span class="num">01</span><h3>Alcance</h3><p>CRUD de categorías y productos; controladores, servicios y utilidades.</p></div>
+        <div class="item"><span class="num">02</span><h3>Casos</h3><p>Éxitos y errores: datos faltantes, IDs inexistentes y fallos de respuesta.</p></div>
+        <div class="item"><span class="num">03</span><h3>Estrategia</h3><p>JUnit y Mockito para Java; Postman con MySQL para la API completa.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="slide dark" data-notes="Tyler coordinó el sprint y probó el controlador de categorías. José cubrió el servicio de categorías; Jesús, el controlador de productos; Valentina, el servicio de productos; Ethan, utilidades y exportadores Excel. Cada uno trabajó en su rama, abrió un PR y luego se integró a main. Los cinco PR de pruebas quedaron fusionados.">
+  <section class="slide dark" data-notes="El docente pidió un sprint corto con backlog, issues, ramas y evidencia de la participación de cada uno. Todos participamos en las pruebas, aunque cada uno tuvo un módulo principal. Tyler coordinó el sprint y probó el controlador de categorías. José cubrió el servicio de categorías; Jesús, el controlador de productos; Valentina, el servicio de productos; Ethan, utilidades y exportadores Excel. Cada uno trabajó en su rama, abrió un PR y los cinco PR de pruebas quedaron fusionados. Las cinco tareas de pruebas están cerradas; las once historias funcionales siguen abiertas para revisar sus criterios de aceptación.">
     <div class="page">
-      <div class="topline"><span>02 / Organización</span><span class="right">Cinco integrantes</span></div>
+      <div class="topline"><span>02 / Organización</span><span class="right">Sprint de dos días</span></div>
       <h2 class="section-head">Un módulo por persona</h2>
       <div class="team">
         <div class="person"><strong>Tyler</strong><span>Controlador de categorías · Scrum</span></div>
@@ -129,11 +129,11 @@
         <div class="person"><strong>Valentina</strong><span>Servicio de productos</span></div>
         <div class="person"><strong>Ethan</strong><span>Utilidades y exportadores Excel</span></div>
       </div>
-      <div class="flow"><span>Issue</span><b>→</b><span>Rama</span><b>→</b><span>PR y revisión</span><b>→</b><span>main</span></div>
+      <div class="flow"><span>Backlog</span><b>→</b><span>Issue</span><b>→</b><span>Rama</span><b>→</b><span>PR y revisión</span><b>→</b><span>main</span></div>
     </div>
   </section>
 
-  <section class="slide light" data-notes="Sobre la versión integrada de main ejecutamos Maven verify. Pasaron 106 pruebas Java sin fallos ni errores. Son métodos de prueba distribuidos en 14 clases. El panel de VS Code muestra 120 marcas porque aparentemente suma esas 14 clases; para el informe usamos el resultado de Maven. Los casos incluyen respuestas correctas, errores 400 y 404 y comprobaciones de que no se guarde cuando una búsqueda falla.">
+  <section class="slide light" data-notes="Sobre la versión integrada de main ejecutamos Maven verify. Pasaron 106 pruebas Java sin fallos ni errores. Son métodos de prueba distribuidos en 14 clases. El panel de VS Code muestra 120 marcas porque parece sumar esas 14 clases; para el informe usamos el resultado de Maven. Los casos incluyen respuestas correctas, errores 400 y 404 y comprobaciones de que no se guarde cuando una búsqueda falla. Si preguntan por Mockito: @Mock crea una dependencia simulada; @InjectMocks coloca esos mocks en la clase que estamos probando. Así comprobamos su lógica sin depender de MySQL.">
     <div class="page">
       <div class="topline"><span>03 / Pruebas Java</span><span class="right">Maven · main</span></div>
       <h2 class="section-head">La suite integrada pasó</h2>
@@ -182,12 +182,12 @@
     </div>
   </section>
 
-  <section class="slide dark" data-notes="Para la demo, primero corremos las pruebas Java y mostramos el resultado. Después abrimos JaCoCo y aclaramos la diferencia entre líneas, instrucciones y ramas. Al final ejecutamos la colección de Postman y mostramos que los datos se crean y luego se limpian. Las pruebas están integradas; al equipo le queda revisar los criterios de aceptación de las historias antes de cerrar esos issues.">
+  <section class="slide dark" data-notes="La defensa dura de cinco a siete minutos. Primero mostramos GitHub: backlog, issues, ramas, cinco PR fusionados y qué hizo cada integrante. Luego ejecutamos Maven y abrimos JaCoCo, aclarando la diferencia entre líneas, instrucciones y ramas. Por último mostramos Postman con la API y MySQL. El informe de ocho páginas reúne objetivo, alcance, casos y resultados. Las historias funcionales siguen abiertas hasta revisar sus criterios de aceptación.">
     <div class="page">
-      <div class="topline"><span>07 / Cierre</span><span class="right">Demo de 5 a 7 minutos</span></div>
+      <div class="topline"><span>07 / Cierre</span><span class="right">Defensa de 5 a 7 minutos</span></div>
       <div class="closing">
-        <div><h2>Qué mostramos<br>en vivo</h2><div class="steps"><p><b>01</b> Maven: pruebas Java</p><p><b>02</b> JaCoCo: cobertura</p><p><b>03</b> Postman: API con MySQL</p></div></div>
-        <p class="aside"><strong>106 pruebas Java</strong><br>y <strong>177 comprobaciones HTTP</strong> aprobadas.<br><br>Las historias se cierran tras revisar sus criterios de aceptación.</p>
+        <div><h2>Qué mostramos<br>en vivo</h2><div class="steps"><p><b>01</b> GitHub: issues, ramas y PR</p><p><b>02</b> Maven y JaCoCo</p><p><b>03</b> Postman con MySQL</p></div></div>
+        <p class="aside"><strong>Informe: 8 páginas</strong><br>con plan, casos y resultados.<br><br><strong>106 pruebas Java</strong> y <strong>177 comprobaciones HTTP</strong> aprobadas.</p>
       </div>
     </div>
   </section>
