@@ -12,7 +12,7 @@ Partimos de las historias de categorías y productos. Por ejemplo: como usuario 
 
 ## 1:00–1:30 / Trabajo colaborativo
 
-Organizamos un sprint de dos días y repartimos los módulos como se ve aquí. Tyler llevó el seguimiento y todos tuvimos tareas de testing. GitHub muestra los 16 issues cerrados: once historias y cinco tareas de prueba. Los cinco PR están aprobados y fusionados. Algunas descripciones todavía conservan un estado anterior, "En revisión", aunque sus criterios están marcados y los issues aparecen cerrados. En la demo mostraré ese recorrido en el repositorio.
+Organizamos un sprint de dos días y repartimos los módulos como se ve aquí. Tyler llevó el seguimiento y todos tuvimos tareas de testing. GitHub muestra los 16 issues cerrados: once historias y cinco tareas de prueba. Los cinco PR están aprobados y fusionados. Actualizamos las descripciones para reflejar ese estado. En la demo mostraré ese recorrido en el repositorio.
 
 ## 1:30–2:00 / Apoyo de IA
 
@@ -47,5 +47,5 @@ El informe reúne el plan, los casos, la incidencia y las instrucciones para rep
 ANTES DE EXPONER:
 Ensayar la duración en la laptop. Dejar las dependencias descargadas, las pestañas listas, Docker y la API activos. Si una ejecución tarda más, indicar que sigue en curso y distinguirla del reporte guardado. El resultado de una nueva corrida puede variar si cambia la colección o los datos.
 
-SEGUIMIENTO AL CORTE DEL INFORME:
-La colección de Postman y sus imágenes todavía deben compartirse junto al proyecto. Varias descripciones de historias aún muestran el texto antiguo "En revisión"; el estado de GitHub está cerrado, y las casillas aparecen completas. Conviene limpiar ese texto de seguimiento antes de presentar la página de issues.
+PENDIENTE:
+Compartir la colección de Postman y sus imágenes de prueba junto al proyecto.
